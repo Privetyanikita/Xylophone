@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Xylophone
 //
-//  Created by Admin on 24.07.2023.
+//  Created by Mykyta Korniuk on 24.07.2023.
 //
 
 import UIKit
@@ -17,34 +17,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func cKeyPressed(_ sender: UIButton) {
-        playSound("C")
-    }
-    
-    @IBAction func dKeyPrassed(_ sender: UIButton) {
-        playSound("D")
-    }
-    
-    @IBAction func eKeyPressed(_ sender: UIButton) {
-        playSound("E")
-    }
-    
-    @IBAction func fKeyPressed(_ sender: UIButton) {
-        playSound("F")
-    }
-    
-    @IBAction func gKeyPressed(_ sender: UIButton) {
-        playSound("G")
-    }
-    
-    @IBAction func aKeyPressed(_ sender: UIButton) {
-        playSound("A")
-    
-    }
-    
-    @IBAction func bKeyPressed(_ sender: UIButton) {
-        playSound("B")
-    
+    @IBAction func keyPressed(_ sender: UIButton) {
+        guard let note = sender.titleLabel?.text else {fatalError("No note")}
+        
+        playSound(note)
     }
     
     func playSound(_ note: String) {
@@ -60,7 +36,5 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-
-    
 }
 
